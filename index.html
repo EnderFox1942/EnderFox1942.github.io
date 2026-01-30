@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="holidayCaravan">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Luxury Holiday Caravan - Book your perfect coastal escape for 2026">
+    <title>Luxury Holiday Caravan - Coastal Retreat</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-animate.min.js"></script>
+</head>
+<body ng-controller="MainController">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in-up">Your Coastal Escape Awaits</h1>
+            <p class="fade-in-up delay-1">Luxury Holiday Caravan • Comfort • Relaxation</p>
+            <a href="#contact" class="cta-button fade-in-up delay-2">Book Your Stay</a>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card" ng-repeat="feature in features" ng-style="{'animation-delay': ($index * 0.1) + 's'}">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path ng-attr-d="{{feature.icon}}"/>
+                        </svg>
+                    </div>
+                    <h3>{{feature.title}}</h3>
+                    <p>{{feature.description}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exterior Gallery Section -->
+    <section class="section exterior-section">
+        <div class="container">
+            <h2 class="section-title">Exterior Views</h2>
+            <p class="section-subtitle">Beautiful coastal setting with private outdoor space</p>
+            <div class="gallery">
+                <div class="gallery-item" 
+                     ng-repeat="image in exteriorImages" 
+                     ng-click="openModal(image.src)"
+                     ng-style="{'animation-delay': ($index * 0.05) + 's'}">
+                    <img ng-src="{{image.src}}" alt="{{image.alt}}">
+                    <div class="gallery-overlay">
+                        <span>View</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interior Gallery Section -->
+    <section class="section interior-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Interior Spaces</h2>
+            <p class="section-subtitle">Comfortable and modern living areas</p>
+            <div class="gallery">
+                <div class="gallery-item" 
+                     ng-repeat="image in interiorImages" 
+                     ng-click="openModal(image.src)"
+                     ng-style="{'animation-delay': ($index * 0.05) + 's'}">
+                    <img ng-src="{{image.src}}" alt="{{image.alt}}">
+                    <div class="gallery-overlay">
+                        <span>View</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Pricing Options</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card" ng-repeat="option in pricingOptions">
+                    <div class="summer-badge" ng-if="option.isSummer">Peak Season</div>
+                    <h3>{{option.title}}</h3>
+                    <div class="price">{{option.price}}</div>
+                    <div class="duration">{{option.duration}}</div>
+                    <ul class="features">
+                        <li ng-repeat="feature in option.features">{{feature}}</li>
+                    </ul>
+                    <p class="excludes-note" ng-if="option.excludes">*{{option.excludes}}</p>
+                </div>
+            </div>
+            <div class="availability-notice">
+                Now taking bookings for 2026 season
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Contact us to book your perfect getaway</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                    </div>
+                    <h3>Call Us</h3>
+                    <a href="tel:+447808550201">+44 7808 550201</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </div>
+                    <h3>Facebook</h3>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Message on Facebook</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" ng-class="{'active': modalImage}" ng-click="closeModal()">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <img ng-src="{{modalImage}}" alt="Enlarged view">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Luxury Holiday Caravan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="./js/app.js"></script>
+</body>
+</html>
