@@ -220,7 +220,7 @@ The website is built using:
 
 If you need help with the code, you can contact SorynTech:
 
-[![GitHub](https://img.shields.io/badge/GitHub-soryntech-181717?style=for-the-badge&logo=github)](https://github.com/soryntech) [![GitLab](https://img.shields.io/badge/GitLab-soryntech-FCA121?style=for-the-badge&logo=gitlab)](https://gitlab.com/soryntech) [![Discord](https://img.shields.io/badge/Discord-soryntech-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com)
+[![GitHub](https://img.shields.io/badge/GitHub-soryntech-181717?style=for-the-badge&logo=github)](https://github.com/soryntech) [![GitLab](https://img.shields.io/badge/GitLab-soryntech-FCA121?style=for-the-badge&logo=gitlab)](https://gitlab.com/soryntech) [![Discord](https://img.shields.io/badge/Discord-soryntech-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/447812883158532106)
 
 ## License
 
